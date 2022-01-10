@@ -19,7 +19,7 @@ Setting these widgets to manual redraw is strongly recommended.
 ## Caveats
 The current solution is not ideal as it creates an additional throwaway render target every time the render target is created (typically only once, when the widget is first created, so it is unlikely to cause any problems).
 On the plus side, this implementation avoids copying parts of the engine source code (which is against UE EULA) and should work on most engine versions without modifications.
-See LINK for a possible fix.
+See [this comment](https://github.com/hollowdilnik/filtered-widget/blob/main/FilteredWidget/Source/FilteredWidget/Private/FilteredWidgetComponent.cpp#L11) for a possible fix.
 
 ## Performance
 This approach can get pretty heavy.
