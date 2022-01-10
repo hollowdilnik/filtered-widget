@@ -1,7 +1,7 @@
 # FilteredWidget
 
 FilteredWidget is an Unreal Engine 4 plugin introducing UFilteredWidgetComponent, a customized UWidgetComponent with mipmap generation and filtering settings.
-This solves aliasing / flickering in world-placed widgets, which is especially noticable in VR.
+This solves aliasing / flickering in world-placed widgets, which is especially noticeable in VR.
 Tested in UE 4.26.2 with Oculus Quest 2 (native), but should work with other engine versions and hardware too.
 
 Blog post about this technique:
