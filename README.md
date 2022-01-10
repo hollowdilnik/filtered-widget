@@ -8,7 +8,7 @@ Blog post about this technique:
 ![Example](example.png)
 
 ## Installation
-Put the `FilteredWidget` folder into the `Plugins` folder of you project.
+Put the `FilteredWidget` folder into the `Plugins` folder of your project and build the project.
 
 ## Usage
 This plugin provides `UFilteredWidgetComponent` and its blueprint child `BP_FilteredWidgetComponent`.
