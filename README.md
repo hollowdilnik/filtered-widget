@@ -23,6 +23,12 @@ The current solution is not ideal as it creates an additional throwaway render t
 On the plus side, this implementation avoids copying parts of the engine source code (which is against UE EULA) and should work on most engine versions without modifications.
 See [this comment](https://github.com/hollowdilnik/filtered-widget/blob/main/FilteredWidget/Source/FilteredWidget/Private/FilteredWidgetComponent.cpp#L11) for a possible fix.
 
+## Getting swizzled
+There is a feature in UE 4.26 that generously swaps R and B channels after every step of mipmap generation.
+If this causes problems, replace [this line](https://github.com/EpicGames/UnrealEngine/blob/a47b87395132f0454c285dc6ec488dece4d45c9c/Engine/Shaders/Private/ComputeGenerateMips.usf#L36) in the mipmap generation shader with `MipOutUAV[DT_ID.xy] = outColor;`.
+Apparently it was introduced at some point to counteract R and B channels being swapped by Vulkan, but is no longer needed and, ironically, causes R and B channels to get swapped.
+This got fixed in UE 4.27.
+
 ## Performance
 This approach can get pretty heavy.
 Generating mipmaps for fifteen 1k render targets costs me about 9ms on Oculus Quest 2 (0.6ms per widget).
