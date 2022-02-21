@@ -29,6 +29,12 @@ If this causes problems, replace [this line](https://github.com/EpicGames/Unreal
 Apparently it was introduced at some point to counteract R and B channels being swapped by Vulkan, but is no longer needed and, ironically, causes R and B channels to get swapped.
 This got fixed in UE 4.27.
 
+## GENMIPS_SRGB in UE 4.27
+UE 4.27 no longer swizzles your mips, which is great news.
+However, life would be too simple if you didn't have to modify your shader code again, so another generous feature was added.
+UE 4.27 overrides GENMIPS_SRGB on Android Vulkan and forces it to false.
+This causes the mips to be wrong on Oculus Quest devices, and the easiest way to fix that is to ignore GENMIPS_SRGB in the shader code, just like we did with GENMIPS_SWIZZLE in UE 4.26.
+
 ## Performance
 This approach can get pretty heavy.
 Generating mipmaps for fifteen 1k render targets costs me about 9ms on Oculus Quest 2 (0.6ms per widget).
